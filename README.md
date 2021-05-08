@@ -145,7 +145,6 @@ The file of data_stat: rawdata/data_stat.xls
 The file of stat:results/stat.xls  
 The file of dedup.coverage:results/dedup.coverage  
 The file of break_stat:results/break_stat.xls  
-The file of all_stat: results/out.xls  
 
 ### Format description of the data_stat.xls  
 1st column is the sample id  

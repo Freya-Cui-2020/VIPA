@@ -16,13 +16,13 @@ Bio::Seq
 
 perl (Version >=5.30.1)  
 fqtools   
-java (Version >=)  
-trimmmatic (Version >=)  
-bwa (Version >=)  
-samtools (Version >=)  
-blastn (Version >=)  
-muscle (Version >=)   
-EMBOSS cons  (Version >=)  
+java (Version >=1.8.0_242)  
+trimmmatic (Version >=0.39)  
+bwa (Version >=0.7.17-r1188)  
+samtools (Version >=1.9)  
+blastn (Version >=2.8.1+)  
+muscle (Version >=3.8.31)   
+EMBOSS cons  (Version >=6.6.0.0)  
 
 # 2.Installation
 

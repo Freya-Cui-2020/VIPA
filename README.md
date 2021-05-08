@@ -105,3 +105,8 @@ Format description of the dedup.coverage
 17th column is the HPV 5000X覆盖度  
 18th column is the 均一性  
 19th column is the 捕获效率  
+
+Format description of the break_stat.xls
+1th column is the sampleid_hpv type
+2th column is the HPV 断点数
+2th column is the HPV reads数

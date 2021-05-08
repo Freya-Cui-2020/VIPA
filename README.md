@@ -1,6 +1,7 @@
 # VIPA
 # 0
-
+The users should install the packages used in perl and python programs,such as Pod::Usage,Getopt::Long,File::Spec,Cwd,Data::Dumper,List::Util,Bio::DB::Fasta,Bio::Seq,etc.  
+VIPA process used in the software has a perl,python,fqtools.sh,trimmmatic.sh,bwa,samtools,java,blastn,muscle,cons  
 # 1.install
 Download all the files into one folder
 
@@ -46,6 +47,7 @@ ls */pre/*metrics|while read l;do a=${l%%/*};echo -ne "\n$a\t";grep "Unknown" $l
 head */pre/dedup.coverage|sed ':t;N;s#/pre/dedup.coverage <==\n#\t#;b t'|sed 's/==> //'|sed '/^$/d'|sed 's/^hpv/\thpv/' >dedup.coverage  
 sed -i 's?/pre/stat.xls <==??g' stat.xls  
 sed -i 's?/pre/dedup.coverage <==??g' dedup.coverage  
+python statistics.py ../rawdata/data.stat.xls stat.xls dedup.coverage break_stat.xls out.xls 
 ```
 
 31231

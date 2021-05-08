@@ -85,5 +85,23 @@ Format description of the stat.xls
 12th column is the 
 13th column is the HPV ratio  
 
-
-
+Format description of the dedup.coverage  
+1th column is the sample id  
+2th column is the HPV type
+3th column is the Unique reads  
+4th column is the 只比上人的reads  
+5th column is the 只比上人的reads占比  
+6th column is the unmapped reads  
+7th column is the unmapped reads占比  
+8th column is the HPV reads  
+9th column is the HPV depth  
+10th column is the HPV 1X覆盖度  
+11th column is the HPV 4X覆盖度  
+12th column is the HPV 10X覆盖度  
+13th column is the HPV 30X覆盖度  
+14th column is the HPV 500X覆盖度  
+15th column is the HPV 1000X覆盖度  
+16th column is the HPV 2000X覆盖度  
+17th column is the HPV 5000X覆盖度  
+18th column is the 均一性  
+19th column is the 捕获效率  

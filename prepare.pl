@@ -124,7 +124,7 @@ print PIPE_OUT "[ -e $result_path/4_run_all_pipe.sh ] && rm $result_path/4_run_a
 if($type ne "RNA"){
 	open WORK, '>', "$result_path/5_work.sh" or die $!;
 	print WORK "#!/bin/bash\n\n";
-	print WORK "/Database/Software/perl-5.30.1/bin/perl $pipe_path/extract_info_for_MH.pl $result_path $readsupport\n";
+	print WORK "perl $pipe_path/extract_info_for_MH.pl $result_path $readsupport\n";
 	close WORK;
 }
 
@@ -157,7 +157,7 @@ for my $file (readdir DIR) {
 		print CFG "flanking=$flanking\n";
         print CFG "picard=$picard\n";
         close CFG;
-        print PRE_OUT "/Database/Software/perl-5.30.1/bin/perl $pipe_path/pre_pipe.pl $result_path/$sample/pre.config\n";
+        print PRE_OUT "perl $pipe_path/pre_pipe.pl $result_path/$sample/pre.config\n";
 		if($sge eq "True"){
 			print PRE_RUN "qsub -cwd -q all.q -l vf=$maxvmem,p=$threads $result_path/$sample/a_pre.sh\n";
 		}else{
@@ -165,9 +165,9 @@ for my $file (readdir DIR) {
 		}
         
         if($type eq "RNA"){
-            print PIPE_OUT "/Database/Software/perl-5.30.1/bin/perl $pipe_path/out_rnaseq.pl $result_path/$sample/pipe.config\n";
+            print PIPE_OUT "perl $pipe_path/out_rnaseq.pl $result_path/$sample/pipe.config\n";
         }else{
-            print PIPE_OUT "/Database/Software/perl-5.30.1/bin/perl $pipe_path/out_pipe.pl $result_path/$sample/pipe.config\n";
+            print PIPE_OUT "perl $pipe_path/out_pipe.pl $result_path/$sample/pipe.config\n";
         }
     }
 }

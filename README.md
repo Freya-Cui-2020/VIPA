@@ -25,6 +25,7 @@ sh run_fqtools.sh
 ```mkdir -p ../results```  
 Go to the Results directory and prepare the configuration file config.txt  
 Run the command: ```perl prepare.pl-c config.txt ```
+
 ## 3.3 A Step-to-step protocol of the VIPA pipeline
 
 Then 1_out_all_pre.sh 2_run_all_pre.sh 3_out_all_pipe.sh and 5_work.sh are generated in the current directory  
@@ -49,5 +50,40 @@ sed -i 's?/pre/stat.xls <==??g' stat.xls
 sed -i 's?/pre/dedup.coverage <==??g' dedup.coverage  
 python statistics.py ../rawdata/data.stat.xls stat.xls dedup.coverage break_stat.xls out.xls 
 ```
+## 3.5 Result file and the format descript
+The path of the files of final results:    
+The file of data_stat: rawdata/data_stat.xls  
+The file of stat:results/stat.xls  
+The file of dedup.coverage:results/dedup.coverage  
+The file of break_stat:results/break_stat.xls  
+The file of all_stat: results/out.xls  
 
-31231
+Format description of the data_stat.xls  
+1st column is the sample id  
+2nd column is the Raw reads  
+3rd column is the Raw bases  
+4th column is the Raw Q20  
+5th column is the Raw Q30  
+6th column is the Clean reads  
+7th column is the Clean bases  
+8th column is the Clean ratio  
+9th column is the Clean Q20  
+10th column is the Clean Q30  
+
+Format description of the stat.xls 
+1th column is the HPV type  
+2th column is the
+3th column is the 只比上人的reads  
+4th column is the 只比上人的reads占比  
+5th column is the unmapped reads  
+6th column is the unmapped reads占比   
+7th column is the HPV reads  
+8th column is the HPV reads  
+9th column is the HPV depth  
+10th column is the 
+11th column is the 
+12th column is the 
+13th column is the HPV ratio  
+
+
+

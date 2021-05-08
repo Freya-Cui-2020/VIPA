@@ -25,18 +25,48 @@ sh run_fqtools.sh
 ```mkdir -p ../results```  
 Go to the Results directory and prepare the configuration file config.txt  
 Run the command: ```perl prepare.pl-c config.txt ```
-
+#### Description of config.txt file
+raw_data_path:
+result_path:
+sample_suffix:The suffix of data such as _R data should be in the format _R1.fq.gz or _ data should be in the format _1.fq.gz
+ref_merge:
+bwa_ref_path:
+blast_ref_path:
+hsa_ref_type:human reference versions
+suffix:The suffix format for data is _R1.fastq.gz,_1. Fastq.gz, _R1.fq.gz,_1. Fq.gz
+layout:Read mode and lengthes, e.g. SE100, PE150
+threads:Number of threads required
+sge:job bathch submission requirenment
+maxvmem:The maxvmem states  the node/queue combination can present as the maximum available virtual memory
+mem:the memory requirenment for each thread of bwa software
+type:sequence type
+method:if the library method is based on PCR amplificaion which does no remove duplilcaiton, fill in MIP. Otherwise, fill in RCA, which will remove duplilcaiton after mapping step.
+EBV:
+mode:multi	multi will generate virus subtypes' integrations, dominate only generate the top one virus subtype's integrations
+depth:The lowest depth for virus detection
+coverage:The lowest coverage for virus detection
+readcounts:The lowest readcounts for virus detection
+readsupport:The lowest readsupport for virus integration sites
+flanking:The flanking lengthes of human-viral junction sequences for integration pattern calculatuions
+picard:The path to the picard jar software
 ## 3.3 A Step-to-step protocol of the VIPA pipeline
 
 Then 1_out_all_pre.sh 2_run_all_pre.sh 3_out_all_pipe.sh and 5_work.sh are generated in the current directory  
 The sh scripts 1 through 5 are executed in order, with 4_run_all_pipe.sh being generated after 3_out_all_pipe.sh is executed  
 ```
 sh 1_out_all_pre.sh  
+> perl pre_pipe.pl /results/*/pre.config
 sh 2_run_all_pre.sh  
+> sh /results/*/a_pre.sh
 sh 3_out_all_pipe.sh  
+> perl out_pipe.pl /results/*/pipe.config
 sh 4_run_all_pipe.sh  
+> sh /result/*/hpv*/all.sh
+>> 
 sh 5_work.sh  
 ```
+1_out_all_pre.sh
+
 ## 3.4 statistic
 ```
 perl stat_breakpoints.pl  
@@ -70,25 +100,25 @@ Format description of the data_stat.xls
 9th column is the Clean Q20  
 10th column is the Clean Q30  
 
-Format description of the stat.xls 
+Format description of the stat.xls  
 1th column is the HPV type  
-2th column is the
-3th column is the 只比上人的reads  
-4th column is the 只比上人的reads占比  
+2nd column is the  
+3rd column is the reads that only mapped to human references  
+4th column is the pecentage of reads that only mapped to human references 
 5th column is the unmapped reads  
-6th column is the unmapped reads占比   
+6th column is the pecentage of unmapped reads
 7th column is the HPV reads  
 8th column is the HPV reads  
 9th column is the HPV depth  
-10th column is the 
-11th column is the 
-12th column is the 
+10th column is the HPV mapping coverage of depeth over 1X
+11th column is the HPV 4X覆盖度 
+12th column is the HPV 10X覆盖度  
 13th column is the HPV ratio  
 
 Format description of the dedup.coverage  
 1th column is the sample id  
-2th column is the HPV type
-3th column is the Unique reads  
+2nd column is the HPV type
+3rd column is the Unique reads  
 4th column is the 只比上人的reads  
 5th column is the 只比上人的reads占比  
 6th column is the unmapped reads  
@@ -106,7 +136,7 @@ Format description of the dedup.coverage
 18th column is the 均一性  
 19th column is the 捕获效率  
 
-Format description of the break_stat.xls
-1th column is the sampleid_hpv type
-2th column is the HPV 断点数
-2th column is the HPV reads数
+Format description of the break_stat.xls  
+1th column is the sampleid_hpv type  
+2nd column is the HPV 断点数  
+3rd column is the HPV reads数  

@@ -23,7 +23,7 @@ Go to the Results directory and prepare the configuration file config.txt
 Run the command: perl prepare.pl-c config.txt  
 Then 1_out_all_pre.sh 2_run_all_pre.sh 3_out_all_pipe.sh and 5_work.sh are generated in the current directory  
 The sh scripts 1 through 5 are executed in order, with 4_run_all_pipe.sh being generated after 3_out_all_pipe.sh is executed  
-sh 1_out_all_pre.sh  
+> sh 1_out_all_pre.sh  
 sh 2_run_all_pre.sh  
 sh 3_out_all_pipe.sh  
 sh 4_run_all_pipe.sh  

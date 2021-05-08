@@ -32,3 +32,9 @@ sh 5_work.sh
 perl stat_breakpoints.pl  
 cd ../rawdata  
 perl data_stat.pl $PWD sample.txt data.stat.xls  
+cd ../results  
+head */pre/stat.xls|sed ':t;N;s#/pre/stat.xls <==\n#\t#;b t'|sed 's/==> //'|sed '/^$/d'|sed 's/^hpv/\thpv/' >stat.xls  
+ls */pre/*metrics|while read l;do a=${l%%/*};echo -ne "\n$a\t";grep "Unknown" $l|awk -F'\t' '{printf $7}';done >dedup.stat  
+head */pre/dedup.coverage|sed ':t;N;s#/pre/dedup.coverage <==\n#\t#;b t'|sed 's/==> //'|sed '/^$/d'|sed 's/^hpv/\thpv/' >dedup.coverage  
+sed -i 's?/pre/stat.xls <==??g' stat.xls  
+sed -i 's?/pre/dedup.coverage <==??g' dedup.coverage  

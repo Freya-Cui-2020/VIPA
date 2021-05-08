@@ -14,8 +14,7 @@ Bio::Seq
 
 ### VIPA pipelines have serveral sofware dependencies, including:
 
-perl (Version >=)  
-python (Version >=)  
+perl (Version >=5.30.1)  
 fqtools   
 java (Version >=)  
 trimmmatic (Version >=)  
